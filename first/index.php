@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+<!-- Ниже форма для ввода данных -->
 <form action="" method="post">
     <p>Вставьте ссылку:</p>
     <input type="text" name="link">
