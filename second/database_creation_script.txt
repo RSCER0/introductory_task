@@ -1,0 +1,92 @@
+
+CREATE SCHEMA IF NOT EXISTS articles DEFAULT CHARACTER SET utf8;
+USE articles;
+
+CREATE TABLE IF NOT EXISTS tag (
+  idtag VARCHAR(32) NOT NULL,
+  tag_name VARCHAR(32) NULL,
+  PRIMARY KEY (idtag))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS publication (
+  idpublication INT NOT NULL,
+  header VARCHAR(128) NULL,
+  announcement_desc VARCHAR(250) NULL,
+  detailed_desc VARCHAR(2048) NULL,
+  publication_date DATETIME NULL,
+  views INT NULL,
+  comments_num INT NULL,
+  likes INT NULL,
+  idtag VARCHAR(32) NOT NULL,
+  PRIMARY KEY (idpublication),
+  CONSTRAINT publication_tag
+    FOREIGN KEY (idtag)
+    REFERENCES tag (idtag)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `user` (
+  iduser INT NOT NULL,
+  nickname VARCHAR(64) NOT NULL,
+  `password` VARCHAR(64) NOT NULL,
+  PRIMARY KEY (iduser))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  idcomment INT NOT NULL,
+  `text` VARCHAR(512) NULL,
+  creation_date VARCHAR(45) NULL,
+  idpublication INT NOT NULL,
+  likes INT NULL,
+  iduser INT NOT NULL,
+  PRIMARY KEY (idcomment),
+  CONSTRAINT comment_publication
+    FOREIGN KEY (idpublication)
+    REFERENCES publication (idpublication)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT comment_user
+    FOREIGN KEY (iduser)
+    REFERENCES `user` (iduser)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS authorship (
+  idauthor INT NOT NULL,
+  idpublication INT NOT NULL,
+  PRIMARY KEY (idauthor, idpublication),
+  CONSTRAINT `user`
+    FOREIGN KEY (idauthor)
+    REFERENCES `user` (iduser)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT publication
+    FOREIGN KEY (idpublication)
+    REFERENCES publication (idpublication)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS subsection (
+  idsubsection VARCHAR(32) NOT NULL,
+  `name` VARCHAR(64) NULL,
+  PRIMARY KEY (idsubsection))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS publication_subsection (
+  idsubsection VARCHAR(32) NOT NULL,
+  idpublication INT NOT NULL,
+  PRIMARY KEY (idsubsection, idpublication),
+  CONSTRAINT subsection
+    FOREIGN KEY (idsubsection)
+    REFERENCES subsection (idsubsection)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT publication_to_subsection
+    FOREIGN KEY (idpublication)
+    REFERENCES publication (idpublication)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;

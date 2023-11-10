@@ -1,0 +1,40 @@
+INSERT INTO user values
+(1, 'Андрей', '124451'),
+(2, 'Виктор', 'h5h5235'),
+(3, 'Роман', 'eh454j2')
+
+INSERT INTO `articles`.`tag` (`idtag`, `tag_name`) VALUES ('box', 'бокс');
+INSERT INTO `articles`.`tag` (`idtag`, `tag_name`) VALUES ('biatlon', 'биатлон');
+INSERT INTO `articles`.`tag` (`idtag`, `tag_name`) VALUES ('football', 'футбол');
+INSERT INTO `articles`.`tag` (`idtag`, `tag_name`) VALUES ('russian_kitchen', 'русская  кухня');
+INSERT INTO `articles`.`tag` (`idtag`, `tag_name`) VALUES ('french_kitchen', 'французская кухня');
+
+INSERT INTO `articles`.`subsection` (`idsubsection`, `name`) VALUES ('cooking', 'Кулинария');
+INSERT INTO `articles`.`subsection` (`idsubsection`, `name`) VALUES ('sport', 'Спорт');
+
+INSERT INTO `articles`.`publication` (`idpublication`, `header`, `announcement_desc`, `detailed_desc`, `publication_date`, `views`, `comments_num`, `likes`, `idtag`) VALUES ('1', 'БОКС КАК ВИД СПОРТА - ЧТО ТАКОЕ БОКС, ИСТОРИЯ И ПРАВИЛА БОКСА', 'Бокс – олимпийский контактный вид единоборств, где удары разрешены кулаками и исключительно в специальных пер...', 'Бокс – олимпийский контактный вид единоборств, где удары разрешены кулаками и исключительно в специальных перчатках. Бокс способствует разностороннему физическому развитию спортсмена, а также воспитанию моральных и волевых качеств, силы духа.', '1994-05-30', '1523', '2', '244', 'box');
+INSERT INTO `articles`.`publication` (`idpublication`, `header`, `announcement_desc`, `detailed_desc`, `publication_date`, `views`, `comments_num`, `likes`, `idtag`) VALUES ('2', 'История биатлона', 'Первые упоминания о состязаниях, в которых можно найти сходством с современным биатлоном, датированы 1767 годом. Однако как вид спорта биатлон начал формироваться значительно по...', 'Первые упоминания о состязаниях, в которых можно найти сходством с современным биатлоном, датированы 1767 годом. Однако как вид спорта биатлон начал формироваться значительно позже, в начале 20 века. В 1924 году на Олимпийских играх в Шамони состоялись гонки патрулей – в них команды из четырех участников бежали дистанцию 25 км и стреляли по воздушным шарикам. Но эти соревнования по военному патрулированию рассматриваются, как отдельная дисциплина, а не биатлон. Гонки патрулей также были включены в программу Олимпиад как демонстрационный вид в 1928, 1936 и 1948 годах.', '1996-04-25', '1251', '4', '256', 'biatlon');
+INSERT INTO `articles`.`publication` (`idpublication`, `header`, `announcement_desc`, `detailed_desc`, `publication_date`, `views`, `comments_num`, `likes`, `idtag`) VALUES ('3', 'Утонули в эпоху Семака. Рейтинг россиян, пострадавших в «Зените»', 'С приходом Семака в «Зенит» в мае 2018-го питерский клуб довольно быстро установил свою гегемонию в чемпионате России. Бело-голубые выигрывают РПЛ уже на протяжении пяти лет, и за это время Сергей Бог...', 'С приходом Семака в «Зенит» в мае 2018-го питерский клуб довольно быстро установил свою гегемонию в чемпионате России. Бело-голубые выигрывают РПЛ уже на протяжении пяти лет, и за это время Сергей Богданович закрепил за собой репутацию одного из лучших тренеров страны. Некоторые отечественные футболисты под его руководством заиграли совершенно по-другому, буквально реанимировав свою карьеру. Однако есть и те, кто при нем стали играть в разы хуже или же просто не сумели раскрыться. Представляем топ-7 россиян, провалившихся в «Зените» при Семаке.', '1998-02-15', '2341', '3', '774', 'football');
+INSERT INTO `articles`.`publication` (`idpublication`, `header`, `announcement_desc`, `detailed_desc`, `publication_date`, `views`, `comments_num`, `likes`, `idtag`) VALUES ('4', 'Особенности и традиции французской кухни', 'Классическая французская кухня ведет свое начало от Короля Франциска I, правившего в 16 веке. В это время появилась так назы...', 'Классическая французская кухня ведет свое начало от Короля Франциска I, правившего в 16 веке. В это время появилась так называемая «буржуазная кухня», являющаяся нечто средним между кухней простого народа и «высшей кулинарией».', '2002-11-23', '276', '7', '23', 'french_kitchen');
+INSERT INTO `articles`.`publication` (`idpublication`, `header`, `announcement_desc`, `detailed_desc`, `publication_date`, `views`, `comments_num`, `likes`, `idtag`) VALUES ('5', 'Русская кухня: традиции и история', 'История русской кухни насчитывает множество веков, в которых она претерпевала изменения под влиянием множества факторов. Сначала была единая славянская кухня, затем она разделилась на отде...', 'История русской кухни насчитывает множество веков, в которых она претерпевала изменения под влиянием множества факторов. Сначала была единая славянская кухня, затем она разделилась на отдельные региональные кухни, и, наконец, сформировалась как отдельное направление в кулинарии. Главными факторами, влияющими на формирование русской кухни, были географическое положение, климатические условия и доступность различных продуктов.', '2003-04-22', '462', '4', '75', 'russian_kitchen');
+
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('1', '1');
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('2', '1');
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('3', '2');
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('2', '3');
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('1', '3');
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('2', '4');
+INSERT INTO `articles`.`authorship` (`idauthor`, `idpublication`) VALUES ('3', '5');
+
+INSERT INTO `articles`.`comment` (`idcomment`, `text`, `creation_date`, `idpublication`, `likes`, `iduser`) VALUES ('1', 'Люблю бокс!!!', '2 января', '1', '1', '1');
+INSERT INTO `articles`.`comment` (`idcomment`, `text`, `creation_date`, `idpublication`, `likes`, `iduser`) VALUES ('2', '10 лет боксирую!!!', '3 декабря ', '1', '2', '2');
+INSERT INTO `articles`.`comment` (`idcomment`, `text`, `creation_date`, `idpublication`, `likes`, `iduser`) VALUES ('3', 'Вчера смотрел биатлон.', '1 сентября', '2', '3', '3');
+INSERT INTO `articles`.`comment` (`idcomment`, `text`, `creation_date`, `idpublication`, `likes`, `iduser`) VALUES ('4', 'Обожаю французскую кухню)', '11 ноября', '4', '2', '3');
+
+INSERT INTO `articles`.`publication_subsection` (`idsubsection`, `idpublication`) VALUES ('sport', '1');
+INSERT INTO `articles`.`publication_subsection` (`idsubsection`, `idpublication`) VALUES ('sport', '2');
+INSERT INTO `articles`.`publication_subsection` (`idsubsection`, `idpublication`) VALUES ('sport', '3');
+INSERT INTO `articles`.`publication_subsection` (`idsubsection`, `idpublication`) VALUES ('cooking', '4');
+INSERT INTO `articles`.`publication_subsection` (`idsubsection`, `idpublication`) VALUES ('cooking', '5');
+
+
